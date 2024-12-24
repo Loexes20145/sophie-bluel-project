@@ -1,0 +1,171 @@
+@import "./design/reset.scss";
+@import "./design/color.scss";
+
+body {
+  font-family: 'Syne';
+  max-width: 1440px;
+  margin: 0 auto;
+  background: $bg-login;
+  padding-top: 50px;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.iconInstagram {
+  width: 1.209375em;
+  height: 1.209375em;
+
+  &:hover {
+    fill: $green;
+  }
+}
+
+.header {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  .header__Logo {
+    width: 213px;
+    height: 42px;
+  }
+
+  .header__Nav > ul {
+    display: flex;
+
+    a.header__Nav__Link {
+      text-decoration: none;
+      color: $black;
+      transition: all .3s
+    }
+
+    a.header__Nav__Link:hover {
+      font-weight: 600;
+    }
+  }
+}
+
+.nav {
+
+  .nav__Menu {
+
+    .nav__Menu__Item {
+      margin: 12px 22px;
+    }
+
+    .nav__Menu__Item:last-child {
+      margin-right: 0;
+    }
+
+    .nav__Menu__Item:last-child:hover {
+      color: $green;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+
+  .footer__Text {
+    margin-left: auto;
+    margin-right: 107px;
+    padding: 24px 0 20px 0;
+    align-self: flex-end;
+
+    a:hover {
+      color: $green;
+    }
+  }
+}
+
+.main {
+  margin: 150px auto 355px auto;
+  max-width: 400px;
+
+  .main__Header {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: $green;
+    margin-bottom: 37px;
+  }
+
+  .main__FormSection {
+
+    .main__FormSection__PassField {
+      margin-top: 30px;
+      margin-bottom: 37px;
+    }
+  }
+
+  .main__FormSection__ActionField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+}
+
+.form {
+
+  .form__Field {
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16.42px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    input {
+      width: 379px;
+      height: 51px;
+      background: #fff;
+      box-shadow: #00000017 0px 4px 14px;
+      border: none;
+    }
+  }
+
+  .form__Action {
+
+    .form__Action__ConnectButton {
+      padding: 10px 38px;
+      border: none;
+      border-radius: 60px;
+      background: $green;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16.8px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .form__Action__ConnectButton:hover {
+      background: #0E2F28;
+    }
+
+    .form__Action__RedirectLink {
+      font-family: 'Work Sans';
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16.42px;
+      color: #3D3D3D;
+      transition: all .3s;
+    }
+
+    .form__Action__RedirectLink:hover {
+      font-weight: 600;
+    }
+
+    .form__Action__RedirectLink:focus {
+      color: $green;
+    }
+  }
+}
