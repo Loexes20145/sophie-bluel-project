@@ -59,9 +59,11 @@ a {
 .iconInstagram {
   width: 1.209375em;
   height: 1.209375em;
+  transition: transform 0.1s;
 }
 .iconInstagram:hover {
   fill: #1D6154;
+  transform: scale(1.1);
 }
 
 .header {
@@ -112,7 +114,7 @@ a {
 
 .main {
   margin: 150px auto 355px auto;
-  max-width: 400px;
+  max-width: 430px;
 }
 .main .main__Header {
   font-weight: 700;
@@ -133,6 +135,9 @@ a {
   gap: 28px;
 }
 
+.form {
+  margin: 0 25.5px;
+}
 .form .form__Field {
   font-family: "Work Sans";
   font-weight: 500;
@@ -143,7 +148,7 @@ a {
   gap: 7px;
 }
 .form .form__Field input {
-  width: 379px;
+  max-width: 379px;
   height: 51px;
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.0901960784) 0px 4px 14px;
@@ -176,6 +181,15 @@ a {
 }
 .form .form__Action .form__Action__RedirectLink:focus {
   color: #1D6154;
+}
+
+@media only screen and (max-width: 1140px) {
+  .header {
+    padding: 0 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

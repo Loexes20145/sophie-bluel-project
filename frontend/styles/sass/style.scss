@@ -1,11 +1,11 @@
-@import "./design/reset.scss";
-@import "./design/color.scss";
+@use "design/reset.scss";
+@use "design/color.scss";
 
 body {
   font-family: 'Syne';
   max-width: 1440px;
   margin: 0 auto;
-  background: $bg-login;
+  background: color.$bg-login;
   padding-top: 50px;
 }
 
@@ -17,9 +17,11 @@ a {
 .iconInstagram {
   width: 1.209375em;
   height: 1.209375em;
+  transition: transform .1s;
 
   &:hover {
-    fill: $green;
+    fill: color.$green;
+    transform: scale(1.1);
   }
 }
 
@@ -39,7 +41,7 @@ a {
 
     a.header__Nav__Link {
       text-decoration: none;
-      color: $black;
+      color: color.$black;
       transition: all .3s
     }
 
@@ -62,7 +64,7 @@ a {
     }
 
     .nav__Menu__Item:last-child:hover {
-      color: $green;
+      color: color.$green;
     }
   }
 }
@@ -78,21 +80,21 @@ a {
     align-self: flex-end;
 
     a:hover {
-      color: $green;
+      color: color.$green;
     }
   }
 }
 
 .main {
   margin: 150px auto 355px auto;
-  max-width: 400px;
+  max-width: 430px;
 
   .main__Header {
     font-weight: 700;
     font-size: 30px;
     line-height: 36px;
     text-align: center;
-    color: $green;
+    color: color.$green;
     margin-bottom: 37px;
   }
 
@@ -113,6 +115,7 @@ a {
 }
 
 .form {
+    margin: 0 25.5px;
 
   .form__Field {
     font-family: 'Work Sans';
@@ -125,7 +128,7 @@ a {
     gap: 7px;
 
     input {
-      width: 379px;
+      max-width: 379px;
       height: 51px;
       background: #fff;
       box-shadow: #00000017 0px 4px 14px;
@@ -139,7 +142,7 @@ a {
       padding: 10px 38px;
       border: none;
       border-radius: 60px;
-      background: $green;
+      background: color.$green;
       font-weight: 700;
       font-size: 14px;
       line-height: 16.8px;
@@ -165,7 +168,17 @@ a {
     }
 
     .form__Action__RedirectLink:focus {
-      color: $green;
+      color: color.$green;
     }
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  
+  .header {
+    padding: 0 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
   }
 }
