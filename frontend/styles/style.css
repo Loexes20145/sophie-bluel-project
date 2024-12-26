@@ -23,13 +23,7 @@ html {
 
 *, *::before, *::after {
   box-sizing: inherit;
-}
-
-img, video {
-  height: auto;
-  max-width: 100%;
-}
-
+} /*img,video{height:auto;max-width:100%}*/
 iframe {
   border: 0;
 }
@@ -64,6 +58,14 @@ a {
 .iconInstagram:hover {
   fill: #1D6154;
   transform: scale(1.1);
+}
+
+.textHeader {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #1D6154;
 }
 
 .header {
@@ -117,11 +119,6 @@ a {
   max-width: 430px;
 }
 .main .main__Header {
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
-  text-align: center;
-  color: #1D6154;
   margin-bottom: 37px;
 }
 .main .main__FormSection .main__FormSection__PassField {
@@ -137,6 +134,9 @@ a {
 
 .form {
   margin: 0 25.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 .form .form__Field {
   font-family: "Work Sans";
@@ -147,12 +147,15 @@ a {
   flex-direction: column;
   gap: 7px;
 }
-.form .form__Field input {
+.form .form__Field input, .form .form__Field textarea {
   max-width: 379px;
   height: 51px;
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.0901960784) 0px 4px 14px;
   border: none;
+}
+.form .form__Field textarea {
+  height: 174px;
 }
 .form .form__Action .form__Action__ConnectButton {
   padding: 10px 38px;
@@ -181,6 +184,74 @@ a {
 }
 .form .form__Action .form__Action__RedirectLink:focus {
   color: #1D6154;
+}
+
+.homeMain {
+  max-width: 100%;
+  margin: 139px 245px;
+  display: flex;
+  gap: 72px;
+}
+.homeMain .homeMain__Text {
+  max-width: 404px;
+  margin: 54px 0;
+}
+.homeMain .homeMain__Text .homeMain__Text__Header {
+  margin-bottom: 19px;
+  text-align: start;
+}
+.homeMain .homeMain__Text p {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.42px;
+}
+
+.projectSection {
+  margin: 0 236px 49px 236px;
+}
+.projectSection .projectSection__Container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.projectSection .projectSection__Container .projectSection__Item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 8px 9px;
+}
+
+.filter {
+  text-align: center;
+  margin: 45px 0;
+}
+.filter .filterButton {
+  margin: 5px;
+  padding: 9px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.2px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #1D6154;
+  border-radius: 60px;
+  color: #1D6154;
+}
+.filter .filterButton:active {
+  color: #fff;
+  background-color: #1D6154;
+}
+
+.contactSection {
+  margin: 150px auto 355px auto;
+  max-width: 430px;
+}
+.contactSection .contactSection__Header {
+  margin-bottom: 38px;
+}
+.contactSection .contactSection__Header__Text {
+  text-align: center;
+  margin-top: 9px;
 }
 
 @media only screen and (max-width: 1140px) {

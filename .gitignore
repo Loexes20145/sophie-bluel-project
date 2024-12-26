@@ -2,3 +2,4 @@ backend/node_modules
 backend/images
 backend/!images/.gitkeep
 sources
+style.sh

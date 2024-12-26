@@ -1,5 +1,6 @@
 @use "design/reset.scss";
 @use "design/color.scss";
+@use "design/filterButton.scss";
 
 body {
   font-family: 'Syne';
@@ -23,6 +24,14 @@ a {
     fill: color.$green;
     transform: scale(1.1);
   }
+}
+
+.textHeader {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: color.$green;
 }
 
 .header {
@@ -90,11 +99,11 @@ a {
   max-width: 430px;
 
   .main__Header {
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 36px;
-    text-align: center;
-    color: color.$green;
+  //   font-weight: 700;
+  //   font-size: 30px;
+  //   line-height: 36px;
+  //   text-align: center;
+  //   color: color.$green;
     margin-bottom: 37px;
   }
 
@@ -116,6 +125,10 @@ a {
 
 .form {
     margin: 0 25.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
 
   .form__Field {
     font-family: 'Work Sans';
@@ -127,12 +140,17 @@ a {
     flex-direction: column;
     gap: 7px;
 
-    input {
+    input, textarea {
       max-width: 379px;
       height: 51px;
       background: #fff;
       box-shadow: #00000017 0px 4px 14px;
       border: none;
+    }
+
+
+    textarea {
+      height: 174px;
     }
   }
 
@@ -172,6 +190,74 @@ a {
     }
   }
 }
+
+.homeMain {
+  max-width: 100%;
+  margin: 139px 245px;
+  display: flex;
+  gap: 72px;
+
+  .homeMain__Text {
+    max-width: 404px;
+    margin: 54px 0;
+
+    .homeMain__Text__Header {
+      margin-bottom: 19px;
+      text-align: start;
+    }
+
+    p {
+      font-family: 'Work Sans';
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16.42px;
+    }
+  }
+}
+
+.projectSection {
+  margin: 0 236px 49px 236px;
+  
+  .projectSection__Container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .projectSection__Item {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin: 8px 9px;
+    }
+  }
+}
+
+.filter {
+  text-align: center;
+  margin: 45px 0;
+
+  .filterButton {
+    margin: 5px;
+
+    @include filterButton.filterButton;
+  }
+}
+
+.contactSection {
+  margin: 150px auto 355px auto;
+  max-width: 430px;
+
+  .contactSection__Header {
+    margin-bottom: 38px;
+  }
+
+  .contactSection__Header__Text {
+    text-align: center;
+    margin-top: 9px;
+  }
+}
+
+
+
 
 @media only screen and (max-width: 1140px) {
   
