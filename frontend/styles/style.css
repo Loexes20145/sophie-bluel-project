@@ -37,6 +37,32 @@ td, th {
   padding: 0;
 }
 
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.errorMessage {
+  color: #f00;
+  border-top: 2px solid #f00;
+  border-bottom: 2px solid #f00;
+  background: rgba(255, 0, 0, 0.2);
+  text-align: center;
+  padding: 5px 0;
+}
+
+.helloMessage {
+  color: #1D6154;
+  border-top: 2px solid #1D6154;
+  border-bottom: 2px solid #1D6154;
+  background: rgba(29, 97, 84, 0.2);
+  text-align: center;
+  padding: 5px 0;
+}
+
 body {
   font-family: "Syne";
   max-width: 1440px;
@@ -119,7 +145,7 @@ a {
   max-width: 430px;
 }
 .main .main__Header {
-  margin-bottom: 37px;
+  margin-bottom: 19px;
 }
 .main .main__FormSection .main__FormSection__PassField {
   margin-top: 30px;
@@ -133,7 +159,7 @@ a {
 }
 
 .form {
-  margin: 0 25.5px;
+  margin: 19px 25.5px 0 25.5px;
   display: flex;
   flex-direction: column;
   gap: 35px;

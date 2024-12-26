@@ -14,7 +14,7 @@
 
   <!-- Header -->
   <header class="header">
-    <img class="header__Logo" src="./assets/Logo.png" alt="Image du logo">
+    <img class="header__Logo" src="./assets/images/Logo.png" alt="Image du logo">
     <nav class="header__Nav nav">
       <ul class="nav__Menu">
         <li class="nav__Menu__Item"><a href="home.html" class="header__Nav__Link">Projets</a></li>
@@ -26,28 +26,31 @@
   </header>
 
   <!-- Login formular section -->
-  <main class="main">
+  <div class="main">
     <div class="main__Header textHeader">Log In</div>
-    <form action="" class="form">
+    <form action="" class="form" id="loginForm">
       <div class="main__FormSection__EmailField form__Field">
         <label for="email">E-mail</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" required>
       </div>
       <div class="main__FormSection__PassField form__Field">
         <label for="password">Mot de passe</label>
-        <input type="text" name="password" id="password">
+        <input type="text" name="password" id="password" required>
       </div>
       <div class="main__FormSection__ActionField form__Action">
-        <button class="form__Action__ConnectButton">Se connecter</button>
+        <button class="form__Action__ConnectButton" id="loginBtn">Se connecter</button>
         <a href="#" class="form__Action__RedirectLink">Mot de passe oublié</a>
       </div>
     </form>
-  </main>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
     <span class="footer__Text"><a>Mentions légales</a></span>
   </footer>
+
+  <!-- Scripts -->
+  <script src="./assets/scripts/login.js" type="module"></script>
 
 </body>
 </html>

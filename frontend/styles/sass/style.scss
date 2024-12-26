@@ -2,6 +2,34 @@
 @use "design/color.scss";
 @use "design/filterButton.scss";
 
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+
+.errorMessage {
+  color: #f00;
+  border-top: 2px solid #f00;
+  border-bottom: 2px solid #f00;
+  background: rgba($color: #f00, $alpha: .2);
+  text-align: center;
+  padding: 5px 0;
+}
+
+.helloMessage {
+  color: color.$green;
+  border-top: 2px solid color.$green;
+  border-bottom: 2px solid color.$green;
+  background: rgba($color: color.$green, $alpha: .2);
+  text-align: center;
+  padding: 5px 0;
+}
+
 body {
   font-family: 'Syne';
   max-width: 1440px;
@@ -104,7 +132,7 @@ a {
   //   line-height: 36px;
   //   text-align: center;
   //   color: color.$green;
-    margin-bottom: 37px;
+    margin-bottom: 19px;
   }
 
   .main__FormSection {
@@ -124,7 +152,7 @@ a {
 }
 
 .form {
-    margin: 0 25.5px;
+    margin: 19px 25.5px 0 25.5px;
     display: flex;
     flex-direction: column;
     gap: 35px;
