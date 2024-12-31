@@ -2,57 +2,68 @@
   {
     "id" : 0,
     "url" : "/backend/images/abajour-tahina1651286843956.png",
-    "title" : "Abat-jour Tahina"
+    "title" : "Abat-jour Tahina",
+    "class" : "item"
   },
   {
     "id" : 1,
     "url" : "/backend/images/appartement-paris-v1651287270508.png",
-    "title" : "Appartement Paris V"
+    "title" : "Appartement Paris V",
+    "class" : "apartment"
   },
   {
     "id" : 2,
     "url" : "/backend/images/restaurant-sushisen-londres1651287319271.png",
-    "title" : "Restaurant Sushisen - Londres"
+    "title" : "Restaurant Sushisen - Londres",
+    "class" : "hotelResto"
   },
   {
     "id" : 3,
     "url" : "/backend/images/la-balisiere1651287350102.png",
-    "title" : "Villa 'La Balisière' - Port Louis"
+    "title" : "Villa 'La Balisière' - Port Louis",
+    "class" : "hotelResto"
   },
   {
     "id" : 4,
     "url" : "/backend/images/structures-thermopolis1651287380258.png",
-    "title" : "Structures Thermopolis"
+    "title" : "Structures Thermopolis",
+    "class" : "item"
   },
   {
     "id" : 5,
     "url" : "/backend/images/appartement-paris-x1651287435459.png",
-    "title" : "Appartement Paris X"
+    "title" : "Appartement Paris X",
+    "class" : "apartment"
   },
   {
     "id" : 6,
     "url" : "/backend/images/le-coteau-cassis1651287469876.png",
-    "title" : "Pavillon 'Le coteau' - Cassis"
+    "title" : "Pavillon 'Le coteau' - Cassis",
+    "class" : "apartment"
   },
   {
     "id" : 7,
     "url" : "/backend/images/villa-ferneze1651287511604.png",
-    "title" : "Villa Ferneze - Isola d’Elba"
+    "title" : "Villa Ferneze - Isola d’Elba",
+    "class" : "apartment"
   },
   {
     "id" : 8,
     "url" : "/backend/images/appartement-paris-xviii1651287541053.png",
-    "title" : "Appartement Paris XVIII"
+    "title" : "Appartement Paris XVIII",
+    "class" : "apartment"
   },
   {
     "id" : 9,
     "url" : "/backend/images/bar-lullaby-paris1651287567130.png",
-    "title" : "Bar 'Lullaby' - Paris"
+    "title" : "Bar 'Lullaby' - Paris",
+    "class" : "hotelResto"
   },
   {
     "id" : 10,
     "url" : "/backend/images/hotel-first-arte-new-delhi1651287605585.png",
-    "title" : "Hotel First Arte - New Delhi"
+    "title" : "Hotel First Arte - New Delhi",
+    "class" : "hotelResto"
   }
 ]
 

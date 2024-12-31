@@ -45,18 +45,22 @@
     <div class="projectSection__Header">
       <h1 class="textHeader">Mes projets</h1>
     </div>
-    <div class="filter projectSection__Filter">
+    
+    <template id="filterLayout">
+      <div class="filter projectSection__Filter">
 
-      <!-- <button class="filterButton">Tous</button>
-      <button class="filterButton">Objets</button>
-      <button class="filterButton">Appartements</button>
-      <button class="filterButton">Hotels & restaurants</button> -->
-      
-    </div>
+        <button class="filterButton filterAll">Tous</button>
+        <button class="filterButton filterItems">Objets</button>
+        <button class="filterButton filterAparts">Appartements</button>
+        <button class="filterButton filterHotels">Hotels & restaurants</button>
+        
+      </div>
+    </template>
+    
     <div id="gallery" class="projects projectSection__Container gallery">
 
       <template id="workItem">
-        <div class="projectSection__Item">
+        <div class="projectSection__Item work">
           <img src="" alt="" class="projectsImage">
           <span></span>
         </div>
