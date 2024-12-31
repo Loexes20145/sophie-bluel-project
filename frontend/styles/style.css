@@ -246,6 +246,10 @@ a {
   gap: 7px;
   margin: 8px 9px;
 }
+.projectSection .projectSection__Container img {
+  width: 303px;
+  height: 407px;
+}
 
 .filter {
   text-align: center;
