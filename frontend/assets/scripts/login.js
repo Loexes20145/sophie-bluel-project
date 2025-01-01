@@ -2,8 +2,8 @@
 const form = document.getElementById('loginForm')
 const loginBtn = document.getElementById('loginBtn')
 
-const userMail = "sophiebluel@gmail.com"
-const userPassword = "S0PHIE"
+const userMail = "sophie.bluel@test.tld"
+const userPassword = "S0phie"
 
 // loginBtn.disabled = true
 
@@ -90,23 +90,29 @@ form.addEventListener('submit', (event) => {
   handleLogin()
 
   const formData = new FormData(form)
-  const data = Object.fromEntries(formData.entries())
+  const formPayload = Object.fromEntries(formData.entries())
 
   fetch('http://localhost:5678/api/users/login', {
     method: 'POST',
-    body: JSON.stringify(data),
+    headers: {
+      'Content-type': 'application/json',
+      'accept': 'application/json'
+    },
+    body: JSON.stringify(formPayload),
   })
-  .then(response => {
-    response.json()
-    if (response.ok) {
-      window.location.href = "home.html"
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error (`${response.status} - ${response.statusText}`)
     }
+    return response.json()
   })
-  .then(data => {
+  .then((data) => {
     console.log('Réponse serveur: ', data)
+    localStorage.setItem("token", data.token)
+    console.log("ok")
   })
-  .catch(error => {
-    console.error('Erreur: ', error)
+  .catch((error) => {
+    console.error(error)
   })
 
 })
