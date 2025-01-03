@@ -1,66 +1,53 @@
 
 import { cloneTemplate, handleEditMode } from "./function/dom.js";
-// import { filterGallery } from "./function/filter.js";
+import { listAll, listByCategories, handleWorkClass } from "./function/filter.js";
 
-function handleWorkClass (categoryId) {
-  let category = ""
+listAll ()
 
-  switch (categoryId) {
-    case 1:
-      category = "Objet"
-      break;
+listByCategories ()
 
-    case 2:
-      category = "Appartement"
-      break;
-    
-    case 3:
-      category = "Hotel&Resto"
-      break;
+getWorks ()
+
+async function getWorks () {
+
+  fetch('http://localhost:5678/api/works', {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+    }
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`${response.status} - ${response.statusText}`)
+      }
+      console.log("%cResponse OK! Travaux récupérés", "background-color: green", response.status)
+      return response.json()
+    })
+    .then((worksData) => {
+      
+      worksData.forEach(work => {
+        const itemDiv = cloneTemplate('workItem').firstElementChild
   
-    default:
-      break;
-  }
+        const workClass = handleWorkClass(work.categoryId)
+        itemDiv.classList.add(workClass)
+  
+        const image = itemDiv.querySelector("img")
+        image.src = work.imageUrl
+        image.alt = `Image de ${work.title}`
+        image.crossOrigin = "anonymous"
+  
+        const imageTitle = itemDiv.querySelector("span")
+        imageTitle.innerText = work.title
+        
+        gallery.appendChild(itemDiv)
+      })
+    })
+    .catch((error) => {
+      console.error(error)
+    })
 
-  return category
 }
 
-fetch('http://localhost:5678/api/works', {
-  method: 'GET',
-  headers: {
-    'Accept': 'application/json',
-  }
-})
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`${response.status} - ${response.statusText}`)
-    }
-    console.log("Response OK!")
-    return response.json()
-  })
-  .then((worksData) => {
-    console.log(worksData)
-    worksData.forEach(work => {
-      const itemDiv = cloneTemplate('workItem').firstElementChild
-
-      const workClass = handleWorkClass(work.categoryId)
-      itemDiv.classList.add(workClass)
-
-      const image = itemDiv.querySelector("img")
-      image.src = work.imageUrl
-      image.alt = `Image de ${work.title}`
-      image.crossOrigin = "anonymous"
-
-      const imageTitle = itemDiv.querySelector("span")
-      imageTitle.innerText = work.title
-      
-      console.log(work)
-      gallery.appendChild(itemDiv)
-    })
-  })
-  .catch((error) => {
-    console.error(error)
-  })
 
 // EventListener to handle edit mode
 document.addEventListener("DOMContentLoaded", () => {
@@ -71,6 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Utilisateur déconnecté")
   } else {
     console.log("Utilisateur connecté.");
-    handleEditMode()
+    // handleEditMode()
   }
 });

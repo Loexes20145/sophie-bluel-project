@@ -107,7 +107,7 @@ form.addEventListener('submit', (event) => {
     return response.json()
   })
   .then((data) => {
-    console.log('Réponse serveur: ', data)
+    console.log('%cRéponse serveur: ', 'color: green;', data)
     localStorage.setItem("token", data.token)
     location.href = "/frontend/home.html"
   })
