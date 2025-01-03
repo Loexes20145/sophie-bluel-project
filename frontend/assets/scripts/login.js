@@ -109,7 +109,7 @@ form.addEventListener('submit', (event) => {
   .then((data) => {
     console.log('Réponse serveur: ', data)
     localStorage.setItem("token", data.token)
-    console.log("ok")
+    location.href = "/frontend/home.html"
   })
   .catch((error) => {
     console.error(error)

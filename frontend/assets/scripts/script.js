@@ -1,58 +1,76 @@
-import { cloneTemplate } from "./function/dom.js";
-import { filterGallery } from "./function/filter.js";
 
-const gallery = document.getElementById("gallery")
+import { cloneTemplate, handleEditMode } from "./function/dom.js";
+// import { filterGallery } from "./function/filter.js";
 
-const workData = "/frontend/assets/scripts/config/workData.json"
+function handleWorkClass (categoryId) {
+  let category = ""
 
-fetch(workData)
-  .then(reponse => {
-    if (reponse.ok) {
-      return reponse.json()
+  switch (categoryId) {
+    case 1:
+      category = "Objet"
+      break;
+
+    case 2:
+      category = "Appartement"
+      break;
+    
+    case 3:
+      category = "Hotel&Resto"
+      break;
+  
+    default:
+      break;
+  }
+
+  return category
+}
+
+fetch('http://localhost:5678/api/works', {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  }
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`${response.status} - ${response.statusText}`)
     }
-    throw new Error("Erreur lors du chargement des données ...");
+    console.log("Response OK!")
+    return response.json()
   })
-  .then(data => {
-    data.forEach(item => {
+  .then((worksData) => {
+    console.log(worksData)
+    worksData.forEach(work => {
       const itemDiv = cloneTemplate('workItem').firstElementChild
-      itemDiv.classList.add(item.class)
+
+      const workClass = handleWorkClass(work.categoryId)
+      itemDiv.classList.add(workClass)
+
       const image = itemDiv.querySelector("img")
-      image.src = item.url
-      image.alt = `Image de ${item.title}`
+      image.src = work.imageUrl
+      image.alt = `Image de ${work.title}`
+      image.crossOrigin = "anonymous"
+
       const imageTitle = itemDiv.querySelector("span")
-      imageTitle.innerText = item.title
+      imageTitle.innerText = work.title
       
+      console.log(work)
       gallery.appendChild(itemDiv)
-    });
-  })
-  .then (() => {
-    const filter = cloneTemplate('filterLayout').firstElementChild
-
-    const filterAllBtn = filter.querySelector(".filterAll")
-    filterAllBtn.addEventListener("click", (e) => {
-      const items = gallery.querySelectorAll(".work")
-      for (let elt of items) {
-        elt.style.display = "flex"
-      }
     })
-
-    const filterItemsBtn = filter.querySelector(".filterItems")
-    filterItemsBtn.addEventListener("click", (e) => {
-      filterGallery('item')
-    })
-
-    const filterApartsBtn = filter.querySelector(".filterAparts")
-    filterApartsBtn.addEventListener("click", (e) => {
-      filterGallery('apartment')
-    })
-
-    const filterHotelsBtn = filter.querySelector(".filterHotels")
-    filterHotelsBtn.addEventListener("click", (e) => {
-      filterGallery('hotelResto')
-    })
-
-    document.querySelector('.projectSection').insertBefore(filter, gallery)
   })
   .catch((error) => {
-    console.error("Une erreur est survenue: " + error)
+    console.error(error)
   })
+
+// EventListener to handle edit mode
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("token");
+
+  // If User is conected activate edit mode
+  if (!token) {
+    console.log("Utilisateur déconnecté")
+  } else {
+    console.log("Utilisateur connecté.");
+    handleEditMode()
+  }
+});

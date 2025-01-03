@@ -63,12 +63,26 @@ td, th {
   padding: 5px 0;
 }
 
+.editSection {
+  background: black;
+  color: white;
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editIcon {
+  width: 15.58px;
+  height: 15.58px;
+  margin-right: 11px;
+}
+
 body {
   font-family: "Syne";
   max-width: 1440px;
   margin: 0 auto;
   background: #FFFEF8;
-  padding-top: 50px;
 }
 
 button,
@@ -96,7 +110,7 @@ a {
 
 .header {
   max-width: 1140px;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   display: flex;
   justify-content: space-between;
 }
@@ -235,6 +249,12 @@ a {
 
 .projectSection {
   margin: 0 236px 49px 236px;
+}
+.projectSection .projectSection__Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 31px;
 }
 .projectSection .projectSection__Container {
   display: flex;
