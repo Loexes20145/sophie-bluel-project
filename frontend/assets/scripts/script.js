@@ -8,7 +8,27 @@ listByCategories ()
 
 getWorks (gallery)
 
-async function getWorks (divElement) {
+function deleteWork (workId) {
+  const token = localStorage.token
+
+  fetch(`http://localhost:5678/api/works/${workId}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    },
+  })
+    .then((response) => {
+      if(!response.ok) {
+        throw new Error(`${response.status} - ${response.statusText}`)
+      }
+      return response.json()
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
+async function getWorks (divElement, deletable=false) {
 
   fetch('http://localhost:5678/api/works', {
     method: 'GET',
@@ -34,7 +54,15 @@ async function getWorks (divElement) {
         const image = itemDiv.querySelector("img")
         image.src = work.imageUrl
         image.alt = `Image de ${work.title}`
-        image.crossOrigin = "anonymous"
+        image.crossOrigin = ""
+
+        const deleteBtn = itemDiv.querySelector(".workDeleteBtn")
+        if (deletable) {
+          deleteBtn.disabled = false
+          deleteBtn.addEventListener("click", () => {deleteWork(work.id)})
+        } else {
+          deleteBtn.remove()
+        }
   
         const imageTitle = itemDiv.querySelector("span")
         imageTitle.innerText = work.title
@@ -53,7 +81,7 @@ function showEditPopup () {
   const editGallery = document.querySelector(".editPopup__Gallery")
   editGallery.innerHTML = ""
 
-  getWorks(editGallery)
+  getWorks(editGallery, true)
 
   editPopup.classList.toggle("active")
 }

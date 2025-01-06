@@ -52,7 +52,7 @@
 
 .editPopup {
   background-color: #ccc;
-  width: 630px;
+  max-width: 630px;
   // max-height: 500px;
   // padding: 0 95px;
   display: none;
@@ -409,6 +409,19 @@ a {
   }
 }
 
+.work {
+  position: relative;
+
+  .workDeleteBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #000;
+    border: none;
+    margin: 0;
+    padding: 4px;
+  }
+}
 
 
 

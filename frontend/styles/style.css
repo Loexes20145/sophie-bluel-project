@@ -85,7 +85,7 @@ td, th {
 
 .editPopup {
   background-color: #ccc;
-  width: 630px;
+  max-width: 630px;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -369,6 +369,19 @@ a {
 .contactSection .contactSection__Header__Text {
   text-align: center;
   margin-top: 9px;
+}
+
+.work {
+  position: relative;
+}
+.work .workDeleteBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #000;
+  border: none;
+  margin: 0;
+  padding: 4px;
 }
 
 @media only screen and (max-width: 1140px) {
