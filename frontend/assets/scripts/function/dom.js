@@ -3,7 +3,9 @@ export function cloneTemplate (id) {
 }
 
 export function handleEditMode () {
-  const edit = cloneTemplate("editLayout").firstElementChild
-  const body = document.querySelector("body")
-  body.prepend(edit)
+  const editHeader = document.querySelector(".editSection")
+  editHeader.classList.toggle("active")
+
+  const editSpan = document.querySelector(".editSpan")
+  editSpan.classList.toggle("active")
 }

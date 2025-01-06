@@ -3,12 +3,12 @@
 @use "design/filterButton.scss";
 
 
-.show {
-  display: block;
+.active {
+  display: flex !important;
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 
@@ -37,12 +37,91 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
+}
+
+.editSpan {
+  display: none;
 }
 
 .editIcon {
   width: 15.58px;
   height: 15.58px;
   margin-right: 11px;
+}
+
+.editPopup {
+  background-color: #ccc;
+  width: 630px;
+  // max-height: 500px;
+  // padding: 0 95px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 9px;
+
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  z-index: 999;
+
+  .editPopup__Header {
+    margin: 15px 0px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .editPopup__Gallery {
+    margin: 15px 78px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .editPopup__Gallery__PhotoBox {
+      width : 300px;
+      height : 200px;
+      background : rgba(255,125,125,.5)
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  button {
+    margin: 15px 0;
+  }
+
+  hr {
+    width: calc(100% - 210px);
+  }
+
+  .closePopup {
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .editPopup__Validate {
+    display: none;
+  }
+
+  .work {
+    margin: 15px 9px;
+  
+    span {
+      display: none;
+    }
+
+    img {
+      width: 76.61px;
+      height: 102.57px;
+    }
+  }
 }
 
 body {
@@ -66,6 +145,22 @@ a {
   &:hover {
     fill: color.$green;
     transform: scale(1.1);
+  }
+}
+
+.btn {
+  padding: 10px 38px;
+  border: none;
+  border-radius: 60px;
+  background: color.$green;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: center;
+  color: #fff;
+
+  &:hover {
+    background: #0E2F28;
   }
 }
 
@@ -199,21 +294,21 @@ a {
 
   .form__Action {
 
-    .form__Action__ConnectButton {
-      padding: 10px 38px;
-      border: none;
-      border-radius: 60px;
-      background: color.$green;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 16.8px;
-      text-align: center;
-      color: #fff;
-    }
+    // .form__Action__ConnectButton {
+    //   padding: 10px 38px;
+    //   border: none;
+    //   border-radius: 60px;
+    //   background: color.$green;
+    //   font-weight: 700;
+    //   font-size: 14px;
+    //   line-height: 16.8px;
+    //   text-align: center;
+    //   color: #fff;
+    // }
 
-    .form__Action__ConnectButton:hover {
-      background: #0E2F28;
-    }
+    // .form__Action__ConnectButton:hover {
+    //   background: #0E2F28;
+    // }
 
     .form__Action__RedirectLink {
       font-family: 'Work Sans';
@@ -278,11 +373,14 @@ a {
       gap: 7px;
       margin: 8px 9px;
     }
+  }
+}
 
-    img {
-      width: 303px;
-      height: 407px;
-    }
+.gallery {
+
+  img {
+    width: 303px;
+    height: 407px;
   }
 }
 
