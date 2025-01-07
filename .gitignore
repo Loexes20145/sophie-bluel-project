@@ -3,3 +3,4 @@ backend/images
 backend/!images/.gitkeep
 sources
 style.sh
+frontend/assets/images/favicon.svg

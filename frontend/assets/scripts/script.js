@@ -77,6 +77,14 @@ async function getWorks (divElement, deletable=false) {
 }
 
 function showEditPopup () {
+  const darkOverlay = document.createElement("div")
+  darkOverlay.classList.add("dark-overlay")
+  document.querySelector("body").append(darkOverlay)
+
+  darkOverlay.addEventListener("click", (e) => {
+    hideEditPopup()
+  })
+
   const editPopup = document.querySelector(".editPopup")
   const editGallery = document.querySelector(".editPopup__Gallery")
   editGallery.innerHTML = ""
@@ -84,25 +92,23 @@ function showEditPopup () {
   getWorks(editGallery, true)
 
   editPopup.classList.toggle("active")
+
 }
 
 function hideEditPopup () {
   const editPopup = document.querySelector(".editPopup")
 
   editPopup.classList.toggle("active")
+
+  document.querySelector(".dark-overlay").remove()
 }
 
 function handleEditWork () {
-  const editPopup = document.querySelector(".editPopup")
+  document.querySelector(".editPopup__Btn").remove()
 
-  const editBtn = document.querySelector(".editPopup__Btn")
-  editBtn.remove()
+  document.querySelector(".editPopup__Validate").classList.toggle("active")
 
-  const editValidate = document.querySelector(".editPopup__Validate")
-  editValidate.classList.toggle("active")
-
-  const editHeader = document.querySelector(".editPopup__Header")
-  editHeader.innerText = "Ajout Photo"
+  document.querySelector(".editPopup__Header").innerText = "Ajout Photo"
 
   const editGallery = document.querySelector(".editPopup__Gallery")
   editGallery.innerHTML = ""
@@ -111,25 +117,38 @@ function handleEditWork () {
   const form = document.createElement("form")
   form.classList.add("editPopup__Form")
 
-  const editImage = document.createElement("input")
-  editImage.type = 'file'
-  editImage.classList.add("editPopup__Form__Image")
-  form.append(editImage)
+  const editUploadBox = document.createElement("div")
+  editUploadBox.classList.add("editPopup__Form__UploadBox")
+  editUploadBox.id = "upload-box"
+  editUploadBox.innerHTML = `
+    <input id="image-upload" type="file" accept="image/*" class="editPopup__Form__Image">
+    <img src="/frontend/assets/images/image.svg" alt="Upload Icon" class="icon">
+    <label for="image-upload" class="upload-label">+ Ajouter Photo</label>
+    <span class="upload-text">jpg, png : 4mo max</span>
+  `
+  form.append(editUploadBox)
 
   const labelTitle = document.createElement("label")
   labelTitle.innerText = "Titre"
   form.append(labelTitle)
 
   const titleInput = document.createElement("input")
-  titleInput.classList.add("editPopup__Form__Title")
+  titleInput.classList.add("editPopup__Form__Title", "editPopup__Form__Field")
   form.append(titleInput)
 
   const labelCategory = document.createElement("label")
   labelCategory.innerText = "Catégorie"
   form.append(labelCategory)
 
-  const categoryInput = document.createElement("input")
-  categoryInput.classList.add("editPopup__Form__Category")
+  const categoryInput = document.createElement("select")
+  categoryInput.id = "category-select"
+  categoryInput.innerHTML = `
+      <option value=""></option>
+      <option value="1">Objets</option>
+      <option value="2">Appartements</option>
+      <option value="3">Hotels & Restaurants</option>
+  `
+  categoryInput.classList.add("editPopup__Form__Category", "editPopup__Form__Field")
   form.append(categoryInput)
 
   editGallery.append(form)

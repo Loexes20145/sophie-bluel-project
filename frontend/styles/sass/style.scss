@@ -11,117 +11,14 @@
   display: none !important;
 }
 
-
-.errorMessage {
-  color: #f00;
-  border-top: 2px solid #f00;
-  border-bottom: 2px solid #f00;
-  background: rgba($color: #f00, $alpha: .2);
-  text-align: center;
-  padding: 5px 0;
-}
-
-.helloMessage {
-  color: color.$green;
-  border-top: 2px solid color.$green;
-  border-bottom: 2px solid color.$green;
-  background: rgba($color: color.$green, $alpha: .2);
-  text-align: center;
-  padding: 5px 0;
-}
-
-.editSection {
-  background: black;
-  color: white;
-  height: 59px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-
-.editSpan {
-  display: none;
-}
-
-.editIcon {
-  width: 15.58px;
-  height: 15.58px;
-  margin-right: 11px;
-}
-
-.editPopup {
-  background-color: #ccc;
-  max-width: 630px;
-  // max-height: 500px;
-  // padding: 0 95px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 9px;
-
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  z-index: 999;
-
-  .editPopup__Header {
-    margin: 15px 0px;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 36px;
-    text-align: center;
-  }
-
-  .editPopup__Gallery {
-    margin: 15px 78px;
-    display: flex;
-    flex-wrap: wrap;
-
-    .editPopup__Gallery__PhotoBox {
-      width : 300px;
-      height : 200px;
-      background : rgba(255,125,125,.5)
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  button {
-    margin: 15px 0;
-  }
-
-  hr {
-    width: calc(100% - 210px);
-  }
-
-  .closePopup {
-    text-decoration: none;
-    color: inherit;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  .editPopup__Validate {
-    display: none;
-  }
-
-  .work {
-    margin: 15px 9px;
-  
-    span {
-      display: none;
-    }
-
-    img {
-      width: 76.61px;
-      height: 102.57px;
-    }
-  }
+.dark-overlay {
+  width: 100%;
+  height: 100%;
+  background: #0000004D;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
 }
 
 body {
@@ -170,6 +67,185 @@ a {
   line-height: 36px;
   text-align: center;
   color: color.$green;
+}
+
+.errorMessage {
+  color: #f00;
+  border-top: 2px solid #f00;
+  border-bottom: 2px solid #f00;
+  background: rgba($color: #f00, $alpha: .2);
+  text-align: center;
+  padding: 5px 0;
+}
+
+.helloMessage {
+  color: color.$green;
+  border-top: 2px solid color.$green;
+  border-bottom: 2px solid color.$green;
+  background: rgba($color: color.$green, $alpha: .2);
+  text-align: center;
+  padding: 5px 0;
+}
+
+.editHeader {
+  background: black;
+  color: white;
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.editSpan {
+  display: none;
+}
+
+.editIcon {
+  width: 15.58px;
+  height: 15.58px;
+  margin-right: 11px;
+}
+
+.editPopup {
+  font-family: 'Work Sans';
+  background-color: #fff;
+  max-width: 630px;
+  // max-height: 500px;
+  // padding: 0 95px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 9px;
+  font-size: 14px;
+  line-height: 16.42px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+  .editPopup__Header {
+    margin: 15px 0px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .editPopup__Gallery {
+    margin: 15px 78px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .editPopup__Gallery__PhotoBox {
+      width : 300px;
+      height : 200px;
+      background : rgba(255,125,125,.5)
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  // .editPopup__Form__Image {
+  //   width: 420px;
+  //   height: 169px;
+  //   background: #E8F1F6;
+  // }
+
+  .editPopup__Form__UploadBox {
+    width: 420px;
+    height: 169px;
+    background: #E8F1F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    .editPopup__Form__Image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      // opacity: 0;
+    }
+
+    .upload-label {
+      padding: 10px 33px;
+      background: #CBD6DC;
+      color: #306685;
+      border-radius: 50px;
+      text-align: center;
+    }
+    
+    .upload-text {
+      font-size: 10px;
+      line-height: 11.73px;
+      color: #444444;
+    }
+  }
+
+  button {
+    margin: 15px 0;
+  }
+
+  hr {
+    width: calc(100% - 210px);
+  }  
+
+  label {
+    font-weight: 500;
+    margin: 11px 0;
+  }
+
+  input, select {
+    font-family: 'Work Sans';
+  }
+
+  .editPopup__Form__Field {
+    width: 420px;
+    height: 51px;
+    padding: 17px;
+    margin: 11px 0;
+    background: #fff;
+    box-shadow: #00000017 0px 4px 14px;
+    border: none;
+  }
+
+  option {
+    border: none;
+    border-radius: 0;
+  }
+
+  .closePopup {
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .editPopup__Validate {
+    display: none;
+  }
+
+  .work {
+    margin: 15px 9px;
+  
+    span {
+      display: none;
+    }
+
+    img {
+      width: 76.61px;
+      height: 102.57px;
+    }
+  }
 }
 
 .header {
@@ -278,7 +354,7 @@ a {
     flex-direction: column;
     gap: 7px;
 
-    input, textarea {
+    input {
       max-width: 379px;
       height: 51px;
       background: #fff;
@@ -289,6 +365,8 @@ a {
 
     textarea {
       height: 174px;
+      box-shadow: #00000017 0px 4px 14px;
+      border: none;
     }
   }
 

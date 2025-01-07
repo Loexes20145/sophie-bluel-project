@@ -45,102 +45,14 @@ td, th {
   display: none !important;
 }
 
-.errorMessage {
-  color: #f00;
-  border-top: 2px solid #f00;
-  border-bottom: 2px solid #f00;
-  background: rgba(255, 0, 0, 0.2);
-  text-align: center;
-  padding: 5px 0;
-}
-
-.helloMessage {
-  color: #1D6154;
-  border-top: 2px solid #1D6154;
-  border-bottom: 2px solid #1D6154;
-  background: rgba(29, 97, 84, 0.2);
-  text-align: center;
-  padding: 5px 0;
-}
-
-.editSection {
-  background: black;
-  color: white;
-  height: 59px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-
-.editSpan {
-  display: none;
-}
-
-.editIcon {
-  width: 15.58px;
-  height: 15.58px;
-  margin-right: 11px;
-}
-
-.editPopup {
-  background-color: #ccc;
-  max-width: 630px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 9px;
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  z-index: 999;
-}
-.editPopup .editPopup__Header {
-  margin: 15px 0px;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 36px;
-  text-align: center;
-}
-.editPopup .editPopup__Gallery {
-  margin: 15px 78px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.editPopup .editPopup__Gallery .editPopup__Gallery__PhotoBox {
-  width: 300px;
-  height: 200px;
-  background: rgba(255, 125, 125, 0.5);
-}
-.editPopup .editPopup__Gallery form {
-  display: flex;
-  flex-direction: column;
-}
-.editPopup button {
-  margin: 15px 0;
-}
-.editPopup hr {
-  width: calc(100% - 210px);
-}
-.editPopup .closePopup {
-  text-decoration: none;
-  color: inherit;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-.editPopup .editPopup__Validate {
-  display: none;
-}
-.editPopup .work {
-  margin: 15px 9px;
-}
-.editPopup .work span {
-  display: none;
-}
-.editPopup .work img {
-  width: 76.61px;
-  height: 102.57px;
+.dark-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3019607843);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
 }
 
 body {
@@ -186,6 +98,155 @@ a {
   line-height: 36px;
   text-align: center;
   color: #1D6154;
+}
+
+.errorMessage {
+  color: #f00;
+  border-top: 2px solid #f00;
+  border-bottom: 2px solid #f00;
+  background: rgba(255, 0, 0, 0.2);
+  text-align: center;
+  padding: 5px 0;
+}
+
+.helloMessage {
+  color: #1D6154;
+  border-top: 2px solid #1D6154;
+  border-bottom: 2px solid #1D6154;
+  background: rgba(29, 97, 84, 0.2);
+  text-align: center;
+  padding: 5px 0;
+}
+
+.editHeader {
+  background: black;
+  color: white;
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.editSpan {
+  display: none;
+}
+
+.editIcon {
+  width: 15.58px;
+  height: 15.58px;
+  margin-right: 11px;
+}
+
+.editPopup {
+  font-family: "Work Sans";
+  background-color: #fff;
+  max-width: 630px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 9px;
+  font-size: 14px;
+  line-height: 16.42px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+.editPopup .editPopup__Header {
+  margin: 15px 0px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+}
+.editPopup .editPopup__Gallery {
+  margin: 15px 78px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.editPopup .editPopup__Gallery .editPopup__Gallery__PhotoBox {
+  width: 300px;
+  height: 200px;
+  background: rgba(255, 125, 125, 0.5);
+}
+.editPopup .editPopup__Gallery form {
+  display: flex;
+  flex-direction: column;
+}
+.editPopup .editPopup__Form__UploadBox {
+  width: 420px;
+  height: 169px;
+  background: #E8F1F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.editPopup .editPopup__Form__UploadBox .editPopup__Form__Image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.editPopup .editPopup__Form__UploadBox .upload-label {
+  padding: 10px 33px;
+  background: #CBD6DC;
+  color: #306685;
+  border-radius: 50px;
+  text-align: center;
+}
+.editPopup .editPopup__Form__UploadBox .upload-text {
+  font-size: 10px;
+  line-height: 11.73px;
+  color: #444444;
+}
+.editPopup button {
+  margin: 15px 0;
+}
+.editPopup hr {
+  width: calc(100% - 210px);
+}
+.editPopup label {
+  font-weight: 500;
+  margin: 11px 0;
+}
+.editPopup input, .editPopup select {
+  font-family: "Work Sans";
+}
+.editPopup .editPopup__Form__Field {
+  width: 420px;
+  height: 51px;
+  padding: 17px;
+  margin: 11px 0;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.0901960784) 0px 4px 14px;
+  border: none;
+}
+.editPopup option {
+  border: none;
+  border-radius: 0;
+}
+.editPopup .closePopup {
+  text-decoration: none;
+  color: inherit;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.editPopup .editPopup__Validate {
+  display: none;
+}
+.editPopup .work {
+  margin: 15px 9px;
+}
+.editPopup .work span {
+  display: none;
+}
+.editPopup .work img {
+  width: 76.61px;
+  height: 102.57px;
 }
 
 .header {
@@ -267,7 +328,7 @@ a {
   flex-direction: column;
   gap: 7px;
 }
-.form .form__Field input, .form .form__Field textarea {
+.form .form__Field input {
   max-width: 379px;
   height: 51px;
   background: #fff;
@@ -276,6 +337,8 @@ a {
 }
 .form .form__Field textarea {
   height: 174px;
+  box-shadow: rgba(0, 0, 0, 0.0901960784) 0px 4px 14px;
+  border: none;
 }
 .form .form__Action .form__Action__RedirectLink {
   font-family: "Work Sans";
