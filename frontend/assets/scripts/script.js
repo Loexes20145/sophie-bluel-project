@@ -1,8 +1,8 @@
 
-import { cloneTemplate, handleEditMode } from "./function/dom.js";
+import { cloneTemplate } from "./function/dom.js";
 import { listByCategories, handleWorkClass } from "./function/filter.js";
 
-let token = sessionStorage.getItem("token")
+const token = sessionStorage.getItem("token")
 
 
 listByCategories ()
@@ -104,54 +104,13 @@ function hideEditPopup () {
 }
 
 function handleEditWork () {
-  document.querySelector(".editPopup__Btn").remove()
+  const editPopupDelete = document.querySelector(".editDeleteWorks")
+  console.log(editPopupDelete)
+  editPopupDelete.classList.toggle("hide")
 
-  document.querySelector(".editPopup__Validate").classList.toggle("active")
-
-  document.querySelector(".editPopup__Header").innerText = "Ajout Photo"
-
-  const editGallery = document.querySelector(".editPopup__Gallery")
-  editGallery.innerHTML = ""
-
-
-  const form = document.createElement("form")
-  form.classList.add("editPopup__Form")
-
-  const editUploadBox = document.createElement("div")
-  editUploadBox.classList.add("editPopup__Form__UploadBox")
-  editUploadBox.id = "upload-box"
-  editUploadBox.innerHTML = `
-    <input id="image-upload" type="file" accept="image/*" class="editPopup__Form__Image">
-    <img src="/frontend/assets/images/image.svg" alt="Upload Icon" class="icon">
-    <label for="image-upload" class="upload-label">+ Ajouter Photo</label>
-    <span class="upload-text">jpg, png : 4mo max</span>
-  `
-  form.append(editUploadBox)
-
-  const labelTitle = document.createElement("label")
-  labelTitle.innerText = "Titre"
-  form.append(labelTitle)
-
-  const titleInput = document.createElement("input")
-  titleInput.classList.add("editPopup__Form__Title", "editPopup__Form__Field", "input-text")
-  form.append(titleInput)
-
-  const labelCategory = document.createElement("label")
-  labelCategory.innerText = "Catégorie"
-  form.append(labelCategory)
-
-  const categoryInput = document.createElement("select")
-  categoryInput.id = "category-select"
-  categoryInput.innerHTML = `
-      <option value=""></option>
-      <option value="1">Objets</option>
-      <option value="2">Appartements</option>
-      <option value="3">Hotels & Restaurants</option>
-  `
-  categoryInput.classList.add("editPopup__Form__Category", "editPopup__Form__Field")
-  form.append(categoryInput)
-
-  editGallery.append(form)
+  const editPopupAdd = document.querySelector(".editAddWorks")
+  console.log(editPopupAdd)
+  editPopupAdd.classList.toggle("hide")
 }
 
 function addWork () {
@@ -187,22 +146,29 @@ function addWork () {
 
 }
 
-document.querySelector(".editCta").addEventListener("click", (e) => {
-  showEditPopup()
-})
+function handleEditMode () {
+  const editHeader = document.querySelector(".editHeader")
+  editHeader.classList.toggle("active")
 
-document.querySelector(".editPopup__Btn").addEventListener("click", (e) => {
-  handleEditWork()
-})
+  const editSpan = document.querySelector(".editSpan")
+  editSpan.classList.toggle("active")
 
-document.querySelector(".editPopup__Validate").addEventListener("click", (e) => {
-  addWork ()
-})
-
-document.querySelector(".closePopup").addEventListener("click", (e) => {
-  hideEditPopup()
-})
-
+  document.querySelector(".editCta").addEventListener("click", (e) => {
+    showEditPopup()
+  })
+  
+  document.querySelector(".editPopup__Btn").addEventListener("click", (e) => {
+    handleEditWork()
+  })
+  
+  document.querySelector(".editPopup__Form").addEventListener("submit", (e) => {
+    addWork ()
+  })
+  
+  document.querySelector(".returnIcon").addEventListener("click", (e) => {
+    handleEditWork ()
+  })
+}
 
 // EventListener to handle edit mode
 document.addEventListener("DOMContentLoaded", () => {

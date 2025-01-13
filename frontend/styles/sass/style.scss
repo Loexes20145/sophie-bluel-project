@@ -11,7 +11,7 @@
   display: none !important;
 }
 
-.input-text {
+.input-text, select {
   padding: 17px;
   margin: 11px 0;
   background: #fff;
@@ -93,6 +93,20 @@ a {
   padding: 5px 0;
 }
 
+.editSection {
+  display: flex;
+  flex-direction: column;
+
+  .btn {
+    align-self: center;
+  }
+
+  hr {
+    width: 420px;
+    margin: 32px auto;
+  }
+}
+
 .editHeader {
   background: black;
   color: white;
@@ -151,10 +165,13 @@ a {
       background : rgba(255,125,125,.5)
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+    
+  }
+
+  .editPopup__Form {
+    margin: 15px 78px;
+    display: flex;
+    flex-direction: column;
   }
 
   // .editPopup__Form__Image {
@@ -200,9 +217,9 @@ a {
     margin: 15px 0;
   }
 
-  hr {
-    width: calc(100% - 210px);
-  }  
+  // hr {
+  //   width: calc(100% - 210px);
+  // }  
 
   label {
     font-weight: 500;
@@ -234,6 +251,14 @@ a {
     position: absolute;
     top: 10px;
     right: 10px;
+  }
+
+  .returnIcon {
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }
 
   .editPopup__Validate {

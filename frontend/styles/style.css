@@ -45,7 +45,7 @@ td, th {
   display: none !important;
 }
 
-.input-text {
+.input-text, select {
   padding: 17px;
   margin: 11px 0;
   background: #fff;
@@ -124,6 +124,18 @@ a {
   padding: 5px 0;
 }
 
+.editSection {
+  display: flex;
+  flex-direction: column;
+}
+.editSection .btn {
+  align-self: center;
+}
+.editSection hr {
+  width: 420px;
+  margin: 32px auto;
+}
+
 .editHeader {
   background: black;
   color: white;
@@ -177,7 +189,8 @@ a {
   height: 200px;
   background: rgba(255, 125, 125, 0.5);
 }
-.editPopup .editPopup__Gallery form {
+.editPopup .editPopup__Form {
+  margin: 15px 78px;
   display: flex;
   flex-direction: column;
 }
@@ -211,9 +224,6 @@ a {
 .editPopup button {
   margin: 15px 0;
 }
-.editPopup hr {
-  width: calc(100% - 210px);
-}
 .editPopup label {
   font-weight: 500;
   margin: 11px 0;
@@ -235,6 +245,13 @@ a {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+.editPopup .returnIcon {
+  text-decoration: none;
+  color: inherit;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 .editPopup .editPopup__Validate {
   display: none;
