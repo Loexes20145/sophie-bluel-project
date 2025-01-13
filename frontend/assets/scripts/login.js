@@ -5,8 +5,6 @@ const loginBtn = document.getElementById('loginBtn')
 const userMail = "sophie.bluel@test.tld"
 const userPassword = "S0phie"
 
-// loginBtn.disabled = true
-
 const validCredentials = (email, password) => {
   if (!(email === userMail) || !(password === userPassword)) {
     throw new Error ("Email ou mot de passe invalide")
@@ -71,7 +69,6 @@ form.addEventListener('submit', (event) => {
     return response.json()
   })
   .then((data) => {
-    console.log('%cRéponse serveur: ', 'color: green;', data)
     sessionStorage.setItem("token", data.token)
     location.href = "/frontend/home.html"
   })

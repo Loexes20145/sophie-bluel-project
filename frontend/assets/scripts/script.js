@@ -133,7 +133,7 @@ function handleEditWork () {
   form.append(labelTitle)
 
   const titleInput = document.createElement("input")
-  titleInput.classList.add("editPopup__Form__Title", "editPopup__Form__Field")
+  titleInput.classList.add("editPopup__Form__Title", "editPopup__Form__Field", "input-text")
   form.append(titleInput)
 
   const labelCategory = document.createElement("label")
