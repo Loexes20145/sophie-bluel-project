@@ -7,80 +7,43 @@ const userPassword = "S0phie"
 
 // loginBtn.disabled = true
 
-const validEmail = (email) => {
-  let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-  if (/* !regex.test(email) || */ !(email === userMail)) {
-    throw new Error ("L'email n'est pas valide.")
+const validCredentials = (email, password) => {
+  if (!(email === userMail) || !(password === userPassword)) {
+    throw new Error ("Email ou mot de passe invalide")
   }
-  if (email === userMail) {
-    console.log("Email validé")
-  }
-}
-
-const validPassword = (password) => {
-  let regex = /^[a-zA-Z0-9._%+-]{2,}$/
-  if (/* !regex.test(password) || */ !(password === userPassword)) {
-    throw new Error ("Le mot de passe n'est pas valide.")
-  }
-  if (password === userPassword) {
-    console.log("Mot de Passe validé")
+  else {
+    console.log("Identifiants valides")
   }
 }
 
-const displayErrorMessage = (message) => {
-    
-  let spanErrorMessage = document.getElementById("erreurMessage")
-  let spanMessageList = document.querySelectorAll('.loginMessage')
-  for (let item of spanMessageList) {
-    item.remove()
-  }
-
-  if (!spanErrorMessage) {
-      spanErrorMessage = document.createElement("span")
-      spanErrorMessage.id = "errorMessage"
-      spanErrorMessage.classList.add("errorMessage")
-      spanErrorMessage.classList.add("loginMessage")
-      
-      form.prepend(spanErrorMessage)
-  }
+const loginMessage = (message, messageStyle) => {
   
-  spanErrorMessage.innerText = message
-}
+  let spanMessage = document.getElementById("loginMessage")
 
-const displayHelloMessage = (message) => {
-    
-  let spanHelloMessage = document.getElementById("helloMessage")
-  let spanMessageList = document.querySelectorAll('.loginMessage')
-  for (let item of spanMessageList) {
-    item.remove()
+  if (!spanMessage) {
+    spanMessage = document.createElement("span")
+    spanMessage.id = "loginMessage"
+    form.prepend(spanMessage)
   }
 
-  if (!spanHelloMessage) {
-      spanHelloMessage = document.createElement("span")
-      spanHelloMessage.id = "helloMessage"
-      spanHelloMessage.classList.add("helloMessage")
-      spanHelloMessage.classList.add("loginMessage")
-      
-      form.prepend(spanHelloMessage)
-  }
-  
-  spanHelloMessage.innerText = message
+  spanMessage.classList = [messageStyle]
+  spanMessage.innerText = message
 }
 
 function handleLogin () {
   try {
     let baliseEmail = document.getElementById('email')
     let email = baliseEmail.value
-    validEmail(email)
 
     let balisePassword = document.getElementById('password')
     let password = balisePassword.value
-    validPassword(password)
 
-    displayHelloMessage("Bienvenue Sophie Bluel")
+    validCredentials(email, password)
+
+    loginMessage("Bienvenue Sophie Bluel", "helloMessage")
 
   } catch (error) {
-    displayErrorMessage(error.message)
+    loginMessage(error.message, "errorMessage")
   }
 }
 
@@ -92,6 +55,7 @@ form.addEventListener('submit', (event) => {
   const formData = new FormData(form)
   const formPayload = Object.fromEntries(formData.entries())
 
+  
   fetch('http://localhost:5678/api/users/login', {
     method: 'POST',
     headers: {
@@ -108,11 +72,12 @@ form.addEventListener('submit', (event) => {
   })
   .then((data) => {
     console.log('%cRéponse serveur: ', 'color: green;', data)
-    localStorage.setItem("token", data.token)
+    sessionStorage.setItem("token", data.token)
     location.href = "/frontend/home.html"
   })
   .catch((error) => {
     console.error(error)
   })
+    
 
 })

@@ -1,15 +1,15 @@
 
 import { cloneTemplate, handleEditMode } from "./function/dom.js";
-import { listAll, listByCategories, handleWorkClass } from "./function/filter.js";
+import { listByCategories, handleWorkClass } from "./function/filter.js";
 
-listAll ()
+let token = sessionStorage.getItem("token")
+
 
 listByCategories ()
 
 getWorks (gallery)
 
 function deleteWork (workId) {
-  const token = localStorage.token
 
   fetch(`http://localhost:5678/api/works/${workId}`, {
     method: 'DELETE',
@@ -159,8 +159,6 @@ function addWork () {
   const title = document.querySelector(".editPopup__Form__Title").value
   const category = document.querySelector(".editPopup__Form__Category").value
 
-  const token = localStorage.token
-
   const formBody = new FormData()
   formBody.append("image", imageFile)
   formBody.append("title", title)
@@ -208,7 +206,6 @@ document.querySelector(".closePopup").addEventListener("click", (e) => {
 
 // EventListener to handle edit mode
 document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("token");
 
   // If User is conected activate edit mode
   if (!token) {

@@ -42,8 +42,6 @@ export function listAll () {
   filterAllBtn.addEventListener("click", () => {filterGallery("work")})
 
   filterDiv.appendChild(filterAllBtn)
-
-  // console.log(filterAllBtn)
 }
 
 export async function listByCategories () {
@@ -63,6 +61,7 @@ export async function listByCategories () {
   })
   .then((categories) => {
     // console.log(categories)
+    listAll()
     categories.forEach(category => {
       filterBtn(category)
     });
